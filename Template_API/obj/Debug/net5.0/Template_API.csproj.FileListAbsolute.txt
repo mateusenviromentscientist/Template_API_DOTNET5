@@ -1,0 +1,7 @@
+C:\Users\mateu\dev\Template_API\Template_API\obj\Debug\net5.0\Template_API.csproj.AssemblyReference.cache
+C:\Users\mateu\dev\Template_API\Template_API\obj\Debug\net5.0\Template_API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mateu\dev\Template_API\Template_API\obj\Debug\net5.0\Template_API.AssemblyInfoInputs.cache
+C:\Users\mateu\dev\Template_API\Template_API\obj\Debug\net5.0\Template_API.AssemblyInfo.cs
+C:\Users\mateu\dev\Template_API\Template_API\obj\Debug\net5.0\Template_API.csproj.CoreCompileInputs.cache
+C:\Users\mateu\dev\Template_API\Template_API\obj\Debug\net5.0\Template_API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\mateu\dev\Template_API\Template_API\obj\Debug\net5.0\Template_API.MvcApplicationPartsAssemblyInfo.cache
