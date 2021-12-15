@@ -20,7 +20,7 @@ namespace Template_API.Repositories
 
         public async Task<IEnumerable<PlayersModel>> GetPlayers()
         {
-            var query = "";
+            var query = "SELECT  Id,Name,Country FROM PLAYERS";
             using (var connection = _context.CreateConnection())
             {
                 var players = await connection.QueryAsync<PlayersModel>(query);
@@ -30,20 +30,26 @@ namespace Template_API.Repositories
 
         public async Task<PlayersModel> GetPlayer(int id)
         {
-            var query = "";
+            var query = "SELECT * FROM Players WHERE Id = @Id";
+
+
             using (var connection = _context.CreateConnection())
             {
-                var player = await connection.QuerySingleOrDefaultAsync(query, new {id});
+
+                var player = await connection.QuerySingleOrDefaultAsync<PlayersModel>(query, new {id});
+                
                 return player;
             }
+            
         }
 
         public async Task<PlayersModel> CreatePlayer(PlayerForCreationDto player)
         {
-            var query = "";
+            var query = "INSERT INTO Players (Name, Country) VALUES (@Name, @Country)" +
+                        "SELECT CAST(SCOPE_IDENTITY() as int)";
             var paramaters = new DynamicParameters();
-            paramaters.Add("Name",DbType.String);
-            paramaters.Add("Country",DbType.String);
+            paramaters.Add("Name", player.Name, DbType.String);
+            paramaters.Add("Country", player.Country, DbType.String);
             using (var connection = _context.CreateConnection())
             {
                 var id = await connection.QuerySingleAsync<int>(query, paramaters);
@@ -57,13 +63,13 @@ namespace Template_API.Repositories
             }
         }
 
-        public async Task UpdatePlayer(int id,PlayerUpdateDto player)
+        public async Task UpdatePlayer(int id, PlayerUpdateDto player)
         {
-            var query = "";
+            var query = "UPDATE Players SET Name = @Name, Country = @Country WHERE Id = @Id";
             var paramaters = new DynamicParameters();
-            paramaters.Add("Id",id,DbType.Int32);
-            paramaters.Add("Name",DbType.String);
-            paramaters.Add("Country",DbType.String);
+            paramaters.Add("Id", id, DbType.Int32);
+            paramaters.Add("Name", player.Name, DbType.String);
+            paramaters.Add("Country", player.Country, DbType.String);
 
             using (var connection = _context.CreateConnection())
             {
@@ -73,10 +79,10 @@ namespace Template_API.Repositories
 
         public async Task DeletePlayer(int id)
         {
-            var query = "";
-            using (var connection =_context.CreateConnection())
+            var query = "DELETE FROM Players WHERE Id = @Id";
+            using (var connection = _context.CreateConnection())
             {
-                await connection.ExecuteAsync(query,new{id});
+                await connection.ExecuteAsync(query, new { id });
             }
         }
     }
