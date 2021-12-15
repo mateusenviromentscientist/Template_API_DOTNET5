@@ -70,7 +70,6 @@ namespace Template_API.Controllers
             }
             catch (Exception ex)
             {
-                //log error
                 return StatusCode(500, ex.Message);
             }
         }
@@ -85,7 +84,6 @@ namespace Template_API.Controllers
             }
             catch (Exception ex)
             {
-                //log error
                 return StatusCode(500, ex.Message);
             }
         }
