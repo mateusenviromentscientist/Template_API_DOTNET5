@@ -2524,19 +2524,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mateu\\.nuget\\packages\\": {}
+    "C:\\Users\\90005144\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mateu\\dev\\Template_API\\Template_API\\Template_API.csproj",
+      "projectUniqueName": "C:\\dev\\ApiMateus\\Template_API_DOTNET5\\Template_API\\Template_API.csproj",
       "projectName": "Template_API",
-      "projectPath": "C:\\Users\\mateu\\dev\\Template_API\\Template_API\\Template_API.csproj",
-      "packagesPath": "C:\\Users\\mateu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mateu\\dev\\Template_API\\Template_API\\obj\\",
+      "projectPath": "C:\\dev\\ApiMateus\\Template_API_DOTNET5\\Template_API\\Template_API.csproj",
+      "packagesPath": "C:\\Users\\90005144\\.nuget\\packages\\",
+      "outputPath": "C:\\dev\\ApiMateus\\Template_API_DOTNET5\\Template_API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\mateu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\90005144\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
