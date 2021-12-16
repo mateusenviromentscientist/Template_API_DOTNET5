@@ -6,6 +6,7 @@ using Template_API.Context;
 using Template_API.Models;
 using Dapper;
 using Template_API.Dto;
+using Template_API.Scripts;
 
 namespace Template_API.Repositories
 {
@@ -20,7 +21,7 @@ namespace Template_API.Repositories
 
         public async Task<IEnumerable<PlayersModel>> GetPlayers()
         {
-            var query = "SELECT  Id,Name,Country FROM PLAYERS";
+            var query = Queries.GetPlayers();
             using (var connection = _context.CreateConnection())
             {
                 var players = await connection.QueryAsync<PlayersModel>(query);
@@ -30,7 +31,7 @@ namespace Template_API.Repositories
 
         public async Task<PlayersModel> GetPlayer(int id)
         {
-            var query = "SELECT * FROM Players WHERE Id = @Id";
+            var query = Queries.GetPlayersById();
 
 
             using (var connection = _context.CreateConnection())
@@ -45,8 +46,7 @@ namespace Template_API.Repositories
 
         public async Task<PlayersModel> CreatePlayer(PlayerForCreationDto player)
         {
-            var query = "INSERT INTO Players (Name, Country) VALUES (@Name, @Country)" +
-                        "SELECT CAST(SCOPE_IDENTITY() as int)";
+            var query = Queries.CreatePlayers();
             var paramaters = new DynamicParameters();
             paramaters.Add("Name", player.Name, DbType.String);
             paramaters.Add("Country", player.Country, DbType.String);
@@ -65,7 +65,7 @@ namespace Template_API.Repositories
 
         public async Task UpdatePlayer(int id, PlayerUpdateDto player)
         {
-            var query = "UPDATE Players SET Name = @Name, Country = @Country WHERE Id = @Id";
+            var query = Queries.UpdatePlayers();
             var paramaters = new DynamicParameters();
             paramaters.Add("Id", id, DbType.Int32);
             paramaters.Add("Name", player.Name, DbType.String);
@@ -79,7 +79,7 @@ namespace Template_API.Repositories
 
         public async Task DeletePlayer(int id)
         {
-            var query = "DELETE FROM Players WHERE Id = @Id";
+            var query = Queries.DeletePlayers();
             using (var connection = _context.CreateConnection())
             {
                 await connection.ExecuteAsync(query, new { id });
